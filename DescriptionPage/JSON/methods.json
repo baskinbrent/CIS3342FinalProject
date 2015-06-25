@@ -1,0 +1,100 @@
+[
+	{
+		"name": "GetCars",
+		"description": "The GetCars method will return a DataSet of cars that match the agency, city and state provided in the parameters.",
+		"example": "CarServiceRef.CarService pxy = new CarServiceRef.CarService();\nDataSet myDS = pxy.GetCars(agency, city, state);",
+		"properties": [
+			{
+				"type": "CarServiceRef.Agency",
+				"name": "agency",
+				"description": " - Agency that the cars should belong to"
+			},
+			{
+				"type": "string",
+				"name": "city",
+				"description": " - Name of the city the agency is located in (first letter capitalized)"
+			},
+			{
+				"type": "string",
+				"name": "state",
+				"description": " - Two character state abbreviation"
+			}
+		],
+		"returned": {
+			"type": "DataSet",
+			"name": "cars",
+			"description": " - Cars that matched the data provided in the parameters."
+		}
+	},
+	{
+		"name": "FindCars",
+		"description": "The FindCars method will return a DataSet of cars that match the requirements, city and state provided in the parameters.",
+		"example": "CarServiceRef.CarService pxy = new CarServiceRef.CarService();\nDataSet myDS = pxy.FindCars(requirements, city, state);",
+		"properties": [
+			{
+				"type": "CarServiceRef.Requirements",
+				"name": "requirements",
+				"description": " - Requirements object that contains requirements that the cars should have"
+			},
+			{
+				"type": "string",
+				"name": "city",
+				"description": " - Name of the city the agency is located in (first letter capitalized)"
+			},
+			{
+				"type": "string",
+				"name": "state",
+				"description": " - Two character state abbreviation"
+			}
+		],
+		"returned": {
+			"type": "DataSet",
+			"name": "cars",
+			"description": " - Cars that matched the data provided in the parameters."
+		}
+	},
+	{
+		"name": "GetRentalCarAgencies",
+		"description": "The GetRentalCarAgencies method will return a DataSet of agencies that match the city and state provided in the parameters.",
+		"example": "CarServiceRef.CarService pxy = new CarServiceRef.CarService();\nDataSet myDS = pxy.GetRentalCarAgencies(city, state);",
+		"properties": [
+			{
+				"type": "string",
+				"name": "city",
+				"description": " - Name of the city the agency is located in (first letter capitalized)"
+			},
+			{
+				"type": "string",
+				"name": "state",
+				"description": " - Two character state abbreviation"
+			}
+		],
+		"returned": {
+			"type": "DataSet",
+			"name": "agencies",
+			"description": " - Agencies that matched the data provided in the parameters."
+		}
+	},
+	{
+		"name": "Reserve",
+		"description": "The Reserve method will return a result bool; true if the record was inserted successfully and false otherwise",
+		"example": "CarServiceRef.CarService pxy = new CarServiceRef.CarService();\nbool result = pxy.Reserve(customer, car);",
+		"properties": [
+			{
+				"type": "Customer",
+				"name": "customer",
+				"description": " - Customer who will be reserving the vehicle"
+			},
+			{
+				"type": "Car",
+				"name": "car",
+				"description": " - Car that will be reserved by the customer"
+			}
+		],
+		"returned": {
+			"type": "bool",
+			"name": "result",
+			"description": " - Result of the attempted insert operation"
+		}
+	}
+]

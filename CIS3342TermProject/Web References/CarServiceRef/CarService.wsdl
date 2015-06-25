@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetCars">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="agency" type="tns:Agency" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Agency">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="agencyID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCarsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCarsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindCars">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="requirements" type="tns:Requirements" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Requirements">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="price" type="s:float" />
+          <s:element minOccurs="0" maxOccurs="1" name="gps" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="carClass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="electric" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="passengers" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="luggage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="doors" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="mileage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FindCarsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindCarsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRentalCarAgencies">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRentalCarAgenciesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRentalCarAgenciesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Reserve">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="customer" type="tns:Customer" />
+            <s:element minOccurs="0" maxOccurs="1" name="car" type="tns:Car" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Customer">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="customerID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="age" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="phoneNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Car">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="carID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="year" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="make" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="model" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="price" type="s:float" />
+          <s:element minOccurs="0" maxOccurs="1" name="gps" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="carClass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="electric" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="passengers" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="luggage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="doors" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="mileage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ReserveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReserveResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCarsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCars" />
+  </wsdl:message>
+  <wsdl:message name="GetCarsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCarsResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindCarsSoapIn">
+    <wsdl:part name="parameters" element="tns:FindCars" />
+  </wsdl:message>
+  <wsdl:message name="FindCarsSoapOut">
+    <wsdl:part name="parameters" element="tns:FindCarsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRentalCarAgenciesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRentalCarAgencies" />
+  </wsdl:message>
+  <wsdl:message name="GetRentalCarAgenciesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRentalCarAgenciesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReserveSoapIn">
+    <wsdl:part name="parameters" element="tns:Reserve" />
+  </wsdl:message>
+  <wsdl:message name="ReserveSoapOut">
+    <wsdl:part name="parameters" element="tns:ReserveResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CarServiceSoap">
+    <wsdl:operation name="GetCars">
+      <wsdl:input message="tns:GetCarsSoapIn" />
+      <wsdl:output message="tns:GetCarsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindCars">
+      <wsdl:input message="tns:FindCarsSoapIn" />
+      <wsdl:output message="tns:FindCarsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRentalCarAgencies">
+      <wsdl:input message="tns:GetRentalCarAgenciesSoapIn" />
+      <wsdl:output message="tns:GetRentalCarAgenciesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Reserve">
+      <wsdl:input message="tns:ReserveSoapIn" />
+      <wsdl:output message="tns:ReserveSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CarServiceSoap" type="tns:CarServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCars">
+      <soap:operation soapAction="http://tempuri.org/GetCars" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindCars">
+      <soap:operation soapAction="http://tempuri.org/FindCars" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRentalCarAgencies">
+      <soap:operation soapAction="http://tempuri.org/GetRentalCarAgencies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Reserve">
+      <soap:operation soapAction="http://tempuri.org/Reserve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CarServiceSoap12" type="tns:CarServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCars">
+      <soap12:operation soapAction="http://tempuri.org/GetCars" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindCars">
+      <soap12:operation soapAction="http://tempuri.org/FindCars" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRentalCarAgencies">
+      <soap12:operation soapAction="http://tempuri.org/GetRentalCarAgencies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Reserve">
+      <soap12:operation soapAction="http://tempuri.org/Reserve" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CarService">
+    <wsdl:port name="CarServiceSoap" binding="tns:CarServiceSoap">
+      <soap:address location="http://cis-iis2.temple.edu/Fall2014/CIS3342_tuc53874/TermProjectWS/CarService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CarServiceSoap12" binding="tns:CarServiceSoap12">
+      <soap12:address location="http://cis-iis2.temple.edu/Fall2014/CIS3342_tuc53874/TermProjectWS/CarService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

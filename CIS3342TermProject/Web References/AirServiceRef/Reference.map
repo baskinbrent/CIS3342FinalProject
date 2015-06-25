@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://cis-iis2.temple.edu/Fall2014/CIS3342_tuf01657/TermProjectWS/AirService.asmx?disco" filename="AirService.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://cis-iis2.temple.edu/Fall2014/CIS3342_tuf01657/TermProjectWS/AirService.asmx?wsdl" filename="AirService.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>

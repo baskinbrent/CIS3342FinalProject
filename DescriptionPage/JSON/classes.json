@@ -1,0 +1,191 @@
+[
+	{
+		"name": "Agency",
+		"description": "The agency class defines an instance of an agency. It contains an ID, name, phone number, email, city and state.",
+		"example": "CarServiceRef.Agency agencyName = new CarServiceRef.Agency();\nagencyName.agencyID = 1;\nagency.name = \"Hertz\";\nagency.phone = \"+1(800) 654-3131\";\nagency.email = \"support@hertz.com\";\nagency.city = \"Philadelphia\";\nagency.state = \"PA\";",
+		"properties": [
+			{
+				"type": "int",
+				"name": "agencyID",
+				"description": ""
+			},
+			{
+				"type": "string",
+				"name": "name",
+				"description": " - Name of the agency"
+			},
+			{
+				"type": "string",
+				"name": "phone",
+				"description": " - Support phone number for the agency"
+			},
+			{
+				"type": "string",
+				"name": "email",
+				"description": " - Support email address for the agency"
+			},
+			{
+				"type": "string",
+				"name": "city",
+				"description": " - Name of the city the agency is located in (first letter capitalized)"
+			},
+			{
+				"type": "string",
+				"name": "state",
+				"description": " - Two character state abbreviation"
+			}
+		]
+	},
+	{
+		"name": "Requirements",
+		"description": "The requirements class defines an object that contains amenities/facilities that a user may be searching for in a rental car. Properties that are strings can be set to a blank string (\"\") which will be treated as no preference. If you wish to have no preference for properties that are of type int, simply set them to 0.",
+		"example": "CarServiceRef.Requirements requirements = new CarServiceRef.Requirements();\nrequirements.gps = \"no\";\nrequirements.type = \"standard\";\nrequirements.carClass = \"sedan\";\nrequirements.electric = \"no\";\nrequirements.passengers = 5;\nrequirements.luggage = 2;\nrequirements.doors = 5;\nrequirements.mileage = 12500;",
+		"properties": [
+			{
+				"type": "float",
+				"name": "price",
+				"description": " - Max price, cars that cost less than this will be displayed."
+			},
+			{
+				"type": "string",
+				"name": "gps",
+				"description": " - Whether the car should have a GPS or not, accepted values are 'yes' or 'no'"
+			},
+			{
+				"type": "string",
+				"name": "type",
+				"description": " - Car type, accepted values are 'Minivan', 'Super sports', 'Sports', 'Sedan' or 'SUV'"
+			},
+			{
+				"type": "string",
+				"name": "carClass",
+				"description": " - Class of the car as defined by the rental car agency for marketing purposes, accepted values are 'Sports', 'Standard', 'Minivan', 'Sport luxury', 'Sport', 'Standard' or 'Luxury SUV'"
+			},
+			{
+				"type": "string",
+				"name": "electric",
+				"description": " - Whether the cars should be electric, accepted values are 'yes' or 'no'"
+			},
+			{
+				"type": "int",
+				"name": "passengers",
+				"description": " - Number of passengers the cars should be able to seat"
+			},
+			{
+				"type": "int",
+				"name": "luggage",
+				"description": " - Number of standard sized suitcases that the car's luggage compartment should be able to fit"
+			},
+			{
+				"type": "int",
+				"name": "doors",
+				"description": " - Number of doors"
+			},
+			{
+				"type": "int",
+				"name": "mileage",
+				"description": " - The maximum mileage allowed, only cars with mileage below this amount will be displayed"
+			}
+		]
+	},
+	{
+		"name": "Car",
+		"description": "The car class defines an instance of a car object.",
+		"example": "CarServiceRef.Car car = new CarServiceRef.Car();\ncar.make = \"Ford\";\ncar.model = \"Taurus\";\ncar.year = \"2005\";\ncar.price = 1000;\ncar.gps = \"no\";\ncar.type = \"standard\";\ncar.carClass = \"sedan\";\ncar.electric = \"no\";\ncar.passengers = 5;\ncar.luggage = 2;\ncar.doors = 5;\ncar.mileage = 12500;",
+		"properties": [
+			{
+				"type": "string",
+				"name": "make",
+				"description": " - The company that produced the car"
+			},
+			{
+				"type": "string",
+				"name": "model",
+				"description": " - The model of the car"
+			},
+			{
+				"type": "string",
+				"name": "year",
+				"description": " - The year that the car was produced"
+			},
+			{
+				"type": "float",
+				"name": "price",
+				"description": " - Price of the car"
+			},
+			{
+				"type": "string",
+				"name": "gps",
+				"description": " - Whether the car should have a GPS or not, accepted values are 'yes' or 'no'"
+			},
+			{
+				"type": "string",
+				"name": "type",
+				"description": " - Car type"
+			},
+			{
+				"type": "string",
+				"name": "carClass",
+				"description": " - Class of the car as defined by the rental car agency for marketing purposes"
+			},
+			{
+				"type": "string",
+				"name": "electric",
+				"description": " - Whether the cars should be electric, accepted values are 'yes' or 'no'"
+			},
+			{
+				"type": "int",
+				"name": "passengers",
+				"description": " - Number of passengers the cars should be able to seat"
+			},
+			{
+				"type": "int",
+				"name": "luggage",
+				"description": " - Number of standard sized suitcases that the car's luggage compartment should be able to fit"
+			},
+			{
+				"type": "int",
+				"name": "doors",
+				"description": " - Number of doors"
+			},
+			{
+				"type": "int",
+				"name": "mileage",
+				"description": " - The maximum mileage allowed, only cars with mileage below this amount will be displayed"
+			}
+		]
+	},
+	{
+		"name": "Customer",
+		"description": "The customer class represents an instance of a customer who will be reserving vehicles.",
+		"example": "CarServiceRef.customer customerName = new CarServiceRef.customer();\ncustomerName.customerID = 1;\ncustomer.firstName = \"Joe\";\ncustomer.lastName = \"Coolguy\";\ncustomer.phone = \"(215) 654-3131\";\ncustomer.email = \"joe.coolguy@hotmail.com\";",
+		"properties": [
+			{
+				"type": "int",
+				"name": "customerID",
+				"description": ""
+			},
+			{
+				"type": "string",
+				"name": "firstName",
+				"description": " - First name of the customer"
+			},
+			{
+				"type": "string",
+				"name": "lastName",
+				"description": " - Last name of the customer"
+			},
+			{
+				"type": "string",
+				"name": "phone",
+				"description": " - Phone number for the customer"
+			},
+			{
+				"type": "string",
+				"name": "email",
+				"description": " - Email address for the customer"
+			}
+		]
+	}
+	
+]

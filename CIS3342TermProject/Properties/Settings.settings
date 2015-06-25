@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CIS3342TermProject.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CIS3342TermProject_CarServiceRef_CarService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://cis-iis2.temple.edu/Fall2014/CIS3342_tuc53874/TermProjectWS/CarService.asmx</Value>
+    </Setting>
+    <Setting Name="CIS3342TermProject_UserServiceRef_UserService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://cis-iis2.temple.edu/Fall2014/CIS3342_tuc53874/TermProjectWS/UserService.asmx</Value>
+    </Setting>
+    <Setting Name="CIS3342TermProject_HotelServiceRef_HotelService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://cis-iis2.temple.edu/Fall2014/CIS3342_tue55387/TermProjectWS/HotelService.asmx</Value>
+    </Setting>
+    <Setting Name="CIS3342TermProject_EventServiceRef_EventService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://cis-iis2.temple.edu/Fall2014/CIS3342_tud24174/TermProjectWS/EventService.asmx</Value>
+    </Setting>
+    <Setting Name="CIS3342TermProject_AirServiceRef_AirService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://cis-iis2.temple.edu/Fall2014/CIS3342_tuf01657/TermProjectWS/AirService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Warning: Do not modify this file unless you know what you are doing -->
+	<!-- This page is using AngularJS and Bootstrap for rendering content -->
+	
+	<!-- Essential meta tags -->
+	<meta charset="UTF-8">
+	<meta name="author" content="Viraj Chitnis">
+	<meta name="description" content="Car Service description">
+	<meta name="copyright" content="Copyright &copy; 2014 Viraj Chitnis. All Rights Reserved.">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	
+	<!-- Page title -->
+	<title>Car service description</title>
+	
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="DescriptionPage/css/bootstrap.min.css">
+	<link rel="stylesheet" href="DescriptionPage/css/bootstrap-theme.min.css">
+	
+	<!-- 'Ubuntu' from Google fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+	
+	<!-- AngularJS -->
+	<script src="DescriptionPage/js/angular-1.2.26.min.js"></script>
+	
+	<!-- App logic controller -->
+	<script src="DescriptionPage/js/app.js"></script>
+	
+	<!-- CSS stylesheet -->
+	<link rel="stylesheet" href="DescriptionPage/css/stylesheet.css">
+</head>
+<body ng-app="app" ng-controller="MainCtrl">
+	<div class="container-fluid">
+		<!-- Floating 'Back to top' button -->
+		<button id="backToTopButton" ng-click="scrollToTop()" type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-chevron-up"></span> Back to top</button>
+		
+		<!-- Persistent top nav bar -->
+		<div id="contents-nav-fixed">
+			<div class="container">
+				<!-- Contents -->
+				<ul class="nav nav-pills nav-justified" role="tablist">
+					<li id="{{class.name}}-link" role="presentation" ng-repeat="class in classes"><a ng-click="clickNavLink(class.name)">{{class.name}}</a></li>
+					<li id="{{method.name}}-link" role="presentation" ng-repeat="method in methods"><a ng-click="clickNavLink(method.name)">{{method.name}}</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<!-- Page header -->
+		<div class="page-header">
+			<h1>Car Service <small>Viraj Chitnis & Brent Baskin</small></h1>
+		</div>
+		
+		<!-- Contents -->
+		<ul id="contents-nav" class="nav nav-pills nav-justified" role="tablist">
+			<li role="presentation" ng-repeat="class in classes"><a ng-click="clickNavLink(class.name)">{{class.name}}</a></li>
+			<li role="presentation" ng-repeat="method in methods"><a ng-click="clickNavLink(method.name)">{{method.name}}</a></li>
+		</ul>
+		
+		<!-- Link header -->
+		<div>
+			<h2>Location</h2>
+		</div>
+		
+		<pre>http://cis-iis2.temple.edu/Fall2014/CIS3342_tuc53874/TermProjectWS/CarService.asmx</pre>
+	
+		<!-- Classes header -->
+		<div>
+			<h2>Classes</h2>
+		</div>
+	
+		<!-- List of all classes populated via AngularJS -->
+		<div id="{{class.name}}" class="panel panel-default description-boxes" ng-repeat="class in classes">
+			<div class="panel-heading">
+				<h3 class="panel-title">{{class.name}}</h3>
+			</div>
+			<div class="panel-body">
+				<p>{{class.description}}</p>
+				<h4>Properties</h4>
+				<ul class="code-properties">
+					<li ng-repeat="property in class.properties"><span class="object-type">{{property.type}}</span> {{property.name}}<span class="description">{{property.description}}</span></li>
+				</ul>
+				<h4>Example usage</h4>
+				<pre>{{class.example}}</pre>
+			</div>
+		</div>
+	
+		<!-- Methods header -->
+		<div>
+			<h2>Methods</h2>
+		</div>
+	
+		<!-- List of all methods populated via AngularJS -->
+		<div id="{{method.name}}" class="panel panel-default description-boxes" ng-repeat="method in methods">
+			<div class="panel-heading">
+				<h3 class="panel-title">{{method.name}}</h3>
+			</div>
+			<div class="panel-body">
+				<p>{{method.description}}</p>
+				<h4>Parameters</h4>
+				<ul class="code-properties">
+					<li ng-repeat="property in method.properties"><span class="object-type">{{property.type}}</span> {{property.name}}<span class="description">{{property.description}}</span></li>
+				</ul>
+				<h4>Returned</h4>
+				<ul class="code-properties">
+					<li><span class="secondary-object-type">{{method.returned.type}}</span> {{method.returned.name}}<span class="description">{{method.returned.description}}</span></li>
+				</ul>
+				<h4>Example usage</h4>
+				<pre>{{method.example}}</pre>
+			</div>
+		</div>
+	
+		<!-- Page footer -->
+		<div class="footer">
+			<hr>
+			<p>Copyright &copy; 2014 Viraj Chitnis. All Rights Reserved.</p>
+			<br>
+		</div>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="DescriptionPage/js/jquery-1.11.1.min.js"></script>
+	
+	<!-- jQuery visible plugin -->
+	<script src="DescriptionPage/js/jquery.visible.min.js"></script>
+	
+	<!-- Bootstrap JS -->
+	<script src="DescriptionPage/js/bootstrap.min.js"></script>
+	
+	<!-- Page logic -->
+	<script src="DescriptionPage/js/logic.js"></script>
+</body>
+</html>

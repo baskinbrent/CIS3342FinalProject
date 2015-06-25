@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetAirCarriers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="originCityName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="originState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="destinationCityName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="destinationState" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAirCarriersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAirCarriersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFlights">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="carrierID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="departureCity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="departureState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrivalCity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrivalState" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFlightsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFlightsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindFlights">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="requirements" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="originCityName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="originState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="destinationCityName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="destinationState" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FindFlightsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindFlightsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCities">
+        <s:complexType />
+      </s:element>
+      <s:element name="getCitiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCitiesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getFlightsFrom">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="originAirportID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getFlightsFromResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getFlightsFromResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getFlightsTo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="destinationAirportID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getFlightsToResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getFlightsToResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReserveSingle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="customerID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="flightID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="seatType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dateTime" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReserveSingleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReserveSingleResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Reserve">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="customerID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="flightID1" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="seatType1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt1" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="flightID2" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="seatType2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReserveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReserveResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tableName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTableResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckAvailable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="flightID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="flightDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="seatClass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckAvailableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckAvailableResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAirCarriersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAirCarriers" />
+  </wsdl:message>
+  <wsdl:message name="GetAirCarriersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAirCarriersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFlightsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFlights" />
+  </wsdl:message>
+  <wsdl:message name="GetFlightsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFlightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindFlightsSoapIn">
+    <wsdl:part name="parameters" element="tns:FindFlights" />
+  </wsdl:message>
+  <wsdl:message name="FindFlightsSoapOut">
+    <wsdl:part name="parameters" element="tns:FindFlightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCitiesSoapIn">
+    <wsdl:part name="parameters" element="tns:getCities" />
+  </wsdl:message>
+  <wsdl:message name="getCitiesSoapOut">
+    <wsdl:part name="parameters" element="tns:getCitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getFlightsFromSoapIn">
+    <wsdl:part name="parameters" element="tns:getFlightsFrom" />
+  </wsdl:message>
+  <wsdl:message name="getFlightsFromSoapOut">
+    <wsdl:part name="parameters" element="tns:getFlightsFromResponse" />
+  </wsdl:message>
+  <wsdl:message name="getFlightsToSoapIn">
+    <wsdl:part name="parameters" element="tns:getFlightsTo" />
+  </wsdl:message>
+  <wsdl:message name="getFlightsToSoapOut">
+    <wsdl:part name="parameters" element="tns:getFlightsToResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReserveSingleSoapIn">
+    <wsdl:part name="parameters" element="tns:ReserveSingle" />
+  </wsdl:message>
+  <wsdl:message name="ReserveSingleSoapOut">
+    <wsdl:part name="parameters" element="tns:ReserveSingleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReserveSoapIn">
+    <wsdl:part name="parameters" element="tns:Reserve" />
+  </wsdl:message>
+  <wsdl:message name="ReserveSoapOut">
+    <wsdl:part name="parameters" element="tns:ReserveResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTableSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTable" />
+  </wsdl:message>
+  <wsdl:message name="GetTableSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckAvailableSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckAvailable" />
+  </wsdl:message>
+  <wsdl:message name="CheckAvailableSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckAvailableResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AirServiceSoap">
+    <wsdl:operation name="GetAirCarriers">
+      <wsdl:input message="tns:GetAirCarriersSoapIn" />
+      <wsdl:output message="tns:GetAirCarriersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlights">
+      <wsdl:input message="tns:GetFlightsSoapIn" />
+      <wsdl:output message="tns:GetFlightsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindFlights">
+      <wsdl:input message="tns:FindFlightsSoapIn" />
+      <wsdl:output message="tns:FindFlightsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCities">
+      <wsdl:input message="tns:getCitiesSoapIn" />
+      <wsdl:output message="tns:getCitiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getFlightsFrom">
+      <wsdl:input message="tns:getFlightsFromSoapIn" />
+      <wsdl:output message="tns:getFlightsFromSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getFlightsTo">
+      <wsdl:input message="tns:getFlightsToSoapIn" />
+      <wsdl:output message="tns:getFlightsToSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReserveSingle">
+      <wsdl:input message="tns:ReserveSingleSoapIn" />
+      <wsdl:output message="tns:ReserveSingleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Reserve">
+      <wsdl:input message="tns:ReserveSoapIn" />
+      <wsdl:output message="tns:ReserveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTable">
+      <wsdl:input message="tns:GetTableSoapIn" />
+      <wsdl:output message="tns:GetTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAvailable">
+      <wsdl:input message="tns:CheckAvailableSoapIn" />
+      <wsdl:output message="tns:CheckAvailableSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AirServiceSoap" type="tns:AirServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAirCarriers">
+      <soap:operation soapAction="http://tempuri.org/GetAirCarriers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlights">
+      <soap:operation soapAction="http://tempuri.org/GetFlights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindFlights">
+      <soap:operation soapAction="http://tempuri.org/FindFlights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCities">
+      <soap:operation soapAction="http://tempuri.org/getCities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFlightsFrom">
+      <soap:operation soapAction="http://tempuri.org/getFlightsFrom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFlightsTo">
+      <soap:operation soapAction="http://tempuri.org/getFlightsTo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReserveSingle">
+      <soap:operation soapAction="http://tempuri.org/ReserveSingle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Reserve">
+      <soap:operation soapAction="http://tempuri.org/Reserve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTable">
+      <soap:operation soapAction="http://tempuri.org/GetTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAvailable">
+      <soap:operation soapAction="http://tempuri.org/CheckAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AirServiceSoap12" type="tns:AirServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAirCarriers">
+      <soap12:operation soapAction="http://tempuri.org/GetAirCarriers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlights">
+      <soap12:operation soapAction="http://tempuri.org/GetFlights" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindFlights">
+      <soap12:operation soapAction="http://tempuri.org/FindFlights" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCities">
+      <soap12:operation soapAction="http://tempuri.org/getCities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFlightsFrom">
+      <soap12:operation soapAction="http://tempuri.org/getFlightsFrom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFlightsTo">
+      <soap12:operation soapAction="http://tempuri.org/getFlightsTo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReserveSingle">
+      <soap12:operation soapAction="http://tempuri.org/ReserveSingle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Reserve">
+      <soap12:operation soapAction="http://tempuri.org/Reserve" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTable">
+      <soap12:operation soapAction="http://tempuri.org/GetTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAvailable">
+      <soap12:operation soapAction="http://tempuri.org/CheckAvailable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AirService">
+    <wsdl:port name="AirServiceSoap" binding="tns:AirServiceSoap">
+      <soap:address location="http://cis-iis2.temple.edu/Fall2014/CIS3342_tuf01657/TermProjectWS/AirService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AirServiceSoap12" binding="tns:AirServiceSoap12">
+      <soap12:address location="http://cis-iis2.temple.edu/Fall2014/CIS3342_tuf01657/TermProjectWS/AirService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
